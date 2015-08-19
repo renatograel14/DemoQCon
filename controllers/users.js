@@ -13,7 +13,6 @@ module.exports = function userController(User){
 			console.log('User created:',userCreated._id);
 			req.body._id = userCreated._id;
 
-			console.log('create:',userCreated);
 			next();
 		});
 	};
@@ -23,7 +22,6 @@ module.exports = function userController(User){
 			if(!err) {
 				console.log('User updated:',userUpdated._id);
 			}
-			console.log('update:',userUpdated);
 			next();
 		});
 	}

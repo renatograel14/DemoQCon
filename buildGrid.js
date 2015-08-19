@@ -69,7 +69,7 @@ $(document).ready(function() {
         height: 550,
         groupable: false,
         sortable: true,
-        toolbar: ['create'],
+        // toolbar: ['create'],
         editable: 'inline',
         pageable: {
             refresh: true,
@@ -81,8 +81,8 @@ $(document).ready(function() {
         { field: 'LastName', title: "Last Name"},
         { field: 'Company'},
         { field: 'quizHits', title: "RightAnswers", format: "{0:n0}"},
-        { field: 'rating', title: "Rating"},
-        { command: ["edit", "destroy"], title: "&nbsp;", width: "250px" }
+        { field: 'rating', title: "Rating"}/*,
+        { command: ["edit", "destroy"], title: "&nbsp;", width: "250px" }*/
         ]
     });
 });

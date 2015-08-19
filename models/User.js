@@ -6,14 +6,16 @@ module.exports = function User(Mongoose){
 		Role: String,
 		Email: String,
 		MobilePhone: String,
-		quizHits: Number,
 		rating: Number,
-		'__metadata': {
-			'#type': String,
-			'#id': String
-		}
+		Q1: String,
+		Q2: String,
+		Q3: String,
+		Q4: String,
+		Q5: String,
+		Q6: String,
+		Q7: String,
+		Q8: String
 	});
-
 
 	return Mongoose.model('user', user, 'user');
 }

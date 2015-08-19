@@ -33,14 +33,13 @@ module.exports = function corticonCall(corticonConfig,userController){
 			json: requestBody(user)
 		}
 
-
+		console.log(JSON.stringify(requestBody(user)));
 		return options;
 	}
 
 	
 
 	CorticonCall.checkRatingOne = function(req,res,next){
-		console.log(req.body);
 		request(buildRequest(req.body),function(err, response, body){
 			if(!!err) res.send(err);
 			var users = body.Objects;
