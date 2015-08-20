@@ -7,6 +7,7 @@ module.exports = function User(Mongoose){
 		Email: String,
 		MobilePhone: String,
 		rating: Number,
+		quizHits: Number,
 		Q1: String,
 		Q2: String,
 		Q3: String,

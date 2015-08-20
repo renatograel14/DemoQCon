@@ -17,6 +17,17 @@ module.exports = function userController(User){
 		});
 	};
 
+	userController.createGet = function(req, res, next){
+		delete req.query._id;
+		User.create(req.query, function(err, userCreated){
+			if(err) console.error('ERROR:',err);
+			console.log('User created:',userCreated._id);
+			req.query._id = userCreated._id;
+
+			next();
+		});
+	}
+
 	userController.update = function(req, res, next){
 		User.findOneAndUpdate({_id: req.body._id},req.body,function(err, userUpdated){
 			if(!err) {
@@ -46,10 +57,17 @@ module.exports = function userController(User){
 		});
 	}
 
+	userController.findOneGet = function(req,res,next){
+		User.findOne({_id: req.query._id}, function(err, user){
+			if(err) res.json({});
+			res.json(user);
+		});
+	}
+
 	userController.setRating = function(user){
 		User.findOneAndUpdate({_id: user._id}, user, function(err, userUpdated){
 			if(err) console.error('ERROR:',err);
-			console.log('User rating updated:',userUpdated._id);
+			console.log('User rating updated:',userUpdated);
 			return userUpdated;
 		});
 	}

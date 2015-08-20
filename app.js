@@ -38,15 +38,7 @@ var questionsController = require('./controllers/questions')(Question);
 
 Mongoose.connection.once('open', function(){
 	console.log('DataBase connected in', dbAdress);
-
-
-	var questionsData = require('./data/questionsData');
-
-	Question.remove({});
-
-	questionsData.forEach(function(question){
-		Question.create(question);
-	});
+	console.log('Corticon connected in', corticonConfig.uri);
 
 });
 
@@ -62,10 +54,6 @@ app.get('/user', userController.findAll);
 app.post('/user', userController.create,  CorticonCall.checkRatingOne, userController.findOne);
 app.put('/user', userController.update, CorticonCall.checkRatingOne, userController.findOne);
 app.delete('/user', userController.destroy,  userController.findOne);
-
-
-app.get('/questions', questionsController.findAll);
-app.get('/question/:number', questionsController.findOne);
 
 http.createServer(app).listen(app.get('port'), function() {
 	console.log("Express listening at", app.get('port'));

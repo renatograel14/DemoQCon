@@ -26,11 +26,7 @@ $(document).ready(function() {
             },
             "quizHits": {
                 type: 'number',
-                editable: true,
-                validation: {
-                    required: true
-                    
-                }
+                editable: false
             },
             "rating": {
                 type: 'number',
@@ -79,8 +75,7 @@ $(document).ready(function() {
         columns: [
         { field: 'FirstName',title: "First Name"},
         { field: 'LastName', title: "Last Name"},
-        { field: 'Company'},
-        { field: 'quizHits', title: "RightAnswers", format: "{0:n0}"},
+        { field: "quizHits", title: "Right Answers"},
         { field: 'rating', title: "Rating"}/*,
         { command: ["edit", "destroy"], title: "&nbsp;", width: "250px" }*/
         ]

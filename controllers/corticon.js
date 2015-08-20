@@ -33,7 +33,7 @@ module.exports = function corticonCall(corticonConfig,userController){
 			json: requestBody(user)
 		}
 
-		console.log(JSON.stringify(requestBody(user)));
+		console.log(JSON.stringify(options));
 		return options;
 	}
 
